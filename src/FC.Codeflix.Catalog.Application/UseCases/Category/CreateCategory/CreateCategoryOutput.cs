@@ -1,4 +1,6 @@
-﻿namespace FC.Codeflix.Catalog.Application.UseCases.Category;
+﻿using DomainEntity = FC.Codeflix.Catalog.Domain.Entity;
+namespace FC.Codeflix.Catalog.Application.UseCases.Category;
+
 public class CreateCategoryOutput
 {
     public Guid Id { get; set; }
@@ -15,4 +17,6 @@ public class CreateCategoryOutput
         IsActive = isActive;
         CreatedAt = createdAt;
     }
+
+    public static CreateCategoryOutput FromCategory(DomainEntity.Category category) => new CreateCategoryOutput(category.Id, category.Name, category.Description, category.IsActive, category.CreatedAt);
 }
