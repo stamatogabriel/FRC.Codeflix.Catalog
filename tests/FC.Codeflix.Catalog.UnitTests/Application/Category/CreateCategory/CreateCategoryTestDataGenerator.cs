@@ -1,4 +1,6 @@
-﻿namespace FC.Codeflix.Catalog.UnitTests.Application.CreateCategory;
+﻿using FC.Codeflix.Catalog.UnitTests.Application.Category;
+
+namespace FC.Codeflix.Catalog.UnitTests.Application.Category.CreateCategory;
 public class CreateCategoryTestDataGenerator
 {
     public static IEnumerable<object[]> GetInvalidInputs(int times = 15)
@@ -9,7 +11,8 @@ public class CreateCategoryTestDataGenerator
 
         for (int i = 0; i < times; i++)
         {
-            switch(i % totalInvalidCases) {
+            switch (i % totalInvalidCases)
+            {
                 case 0:
                     invalidInputsList.Add(new object[]
                     {
@@ -18,7 +21,7 @@ public class CreateCategoryTestDataGenerator
                     });
                     break;
 
-                    case 1:
+                case 1:
                     invalidInputsList.Add(new object[]
                     {
                        fixture.GetInvalidInputLongName(),
@@ -26,7 +29,7 @@ public class CreateCategoryTestDataGenerator
                     });
                     break;
 
-                    case 2:
+                case 2:
                     invalidInputsList.Add(new object[]
                     {
                         fixture.GetInvalidInputNameNull(),
@@ -34,7 +37,7 @@ public class CreateCategoryTestDataGenerator
                     });
                     break;
 
-                    case 3:
+                case 3:
                     invalidInputsList.Add(new object[]
                     {
                         fixture.GetInvalidInputDescriptionNull(),
@@ -42,7 +45,7 @@ public class CreateCategoryTestDataGenerator
                     });
                     break;
 
-                    case 4:
+                case 4:
                     invalidInputsList.Add(new object[]
                     {
                         fixture.GetInvalidInputDescriptionTooLong(),

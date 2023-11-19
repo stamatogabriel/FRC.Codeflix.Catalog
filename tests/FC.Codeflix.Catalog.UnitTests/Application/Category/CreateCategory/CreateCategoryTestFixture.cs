@@ -5,10 +5,10 @@ using FC.Codeflix.Catalog.UnitTests.Common;
 using Moq;
 using Xunit;
 
-namespace FC.Codeflix.Catalog.UnitTests.Application.CreateCategory;
+namespace FC.Codeflix.Catalog.UnitTests.Application.Category.CreateCategory;
 [CollectionDefinition(nameof(CreateCategoryTestFixture))]
 public class CreateCategoryTestFixtureCollection : ICollectionFixture<CreateCategoryTestFixture>
-{}
+{ }
 
 public class CreateCategoryTestFixture : BaseFixture
 {
@@ -30,13 +30,13 @@ public class CreateCategoryTestFixture : BaseFixture
         return categoryDescription;
     }
 
-    public bool GetRandomBoolean() => (new Random()).NextDouble()  < 0.5;
+    public bool GetRandomBoolean() => new Random().NextDouble() < 0.5;
 
     public CreateCategoryInput GetValidInput() => new(GetValidCategoryName(), GetValidCategoryDescription(), GetRandomBoolean());
 
-    public Mock<ICategoryRepository> GetRepositoryMock() => new ();
-    
-    public Mock<IUnitOfWork> GetUnitOfWorkMock() => new ();
+    public Mock<ICategoryRepository> GetRepositoryMock() => new();
+
+    public Mock<IUnitOfWork> GetUnitOfWorkMock() => new();
 
     public CreateCategoryInput GetInvalidInputShortName()
     {
@@ -73,7 +73,7 @@ public class CreateCategoryTestFixture : BaseFixture
         return invalidInputDescriptionNull;
     }
 
-    public CreateCategoryInput GetInvalidInputDescriptionTooLong() 
+    public CreateCategoryInput GetInvalidInputDescriptionTooLong()
     {
         var invalidInputLongDescription = GetValidInput();
         var tooLongDescriptionCategory = "";
