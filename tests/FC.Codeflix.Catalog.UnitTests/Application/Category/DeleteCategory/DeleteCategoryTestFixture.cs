@@ -1,11 +1,21 @@
-﻿using FC.Codeflix.Catalog.UnitTests.Common;
-using Xunit;
+﻿using FC.Codeflix.Catalog.Application.Interfaces;
 using DomainEntity = FC.Codeflix.Catalog.Domain.Entity;
-namespace FC.Codeflix.Catalog.UnitTests.Domain.Entity.Category;
-public class CategoryTestFixture : BaseFixture
+using FC.Codeflix.Catalog.Domain.Repository;
+using FC.Codeflix.Catalog.UnitTests.Common;
+using Moq;
+using Xunit;
+
+namespace FC.Codeflix.Catalog.UnitTests.Application.Category.DeleteCategory;
+
+[CollectionDefinition(nameof(DeleteCategoryTestFixture))]
+public class DeleteCategoryTestFixtureCollection : ICollectionFixture<DeleteCategoryTestFixture>
+{}
+
+public class DeleteCategoryTestFixture : BaseFixture
 {
-    public CategoryTestFixture() : base() 
-    { }
+    public Mock<ICategoryRepository> GetRepositoryMock() => new();
+
+    public Mock<IUnitOfWork> GetUnitOfWorkMock() => new();
 
     public string GetValidCategoryName()
     {
@@ -27,7 +37,3 @@ public class CategoryTestFixture : BaseFixture
 
     public DomainEntity.Category GetValidCategory() => new(GetValidCategoryName(), Faker.Commerce.ProductDescription());
 }
-
-[CollectionDefinition(nameof(CategoryTestFixture))]
-public class CategoryTestFixtureCollection : ICollectionFixture<CategoryTestFixture> 
-{ }
