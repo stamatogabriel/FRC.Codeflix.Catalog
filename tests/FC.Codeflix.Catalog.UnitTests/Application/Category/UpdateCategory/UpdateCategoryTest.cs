@@ -67,7 +67,7 @@ public class UpdateCategoryTest
     [MemberData(nameof(UpdateCategoryTestdataGenerator.GetCategoriesToUpdate), parameters: 10, MemberType = typeof(UpdateCategoryTestdataGenerator))]
     public async void UpdateCategoryWithoutProvidingIsActive(DomainEntity.Category exampleCategory, UseCases.UpdateCategoryInput exampleInput)
     {
-        var input = new UseCases.UpdateCategoryInput(exampleInput.Id, exampleInput.Name, exampleInput.Description);
+        var input = new UpdateCategoryInput(exampleInput.Id, exampleInput.Name, exampleInput.Description);
         var repositoryMock = _fixture.GetRepositoryMock();
         var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
 

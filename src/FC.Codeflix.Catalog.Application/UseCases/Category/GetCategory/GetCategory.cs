@@ -1,6 +1,5 @@
 ﻿using FC.Codeflix.Catalog.Application.UseCases.Category.Common;
 using FC.Codeflix.Catalog.Domain.Repository;
-using MediatR;
 
 namespace FC.Codeflix.Catalog.Application.UseCases.Category.GetCategory;
 public class GetCategory : IGetCategory
